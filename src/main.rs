@@ -3,9 +3,24 @@ mod models;
 use models::Video;
 mod video_list;
 use video_list::*;
+mod video_details;
+use video_details::*;
 
 #[function_component(App)]
 fn app() -> Html {
+    let selected_video = use_state(|| None);
+
+    let on_video_select = {
+        let selected_video = selected_video.clone();
+        Callback::from(move |video: Video| selected_video.set(Some(video)))
+    };
+
+    let details = selected_video.as_ref().map(|video| {
+        html! {
+            <VideoDetails video={video.clone()}/>
+        }
+    });
+
     let videos = vec![
         Video {
             id: 1,
@@ -38,10 +53,10 @@ fn app() -> Html {
             <h1>{"RustConf Explorer"}</h1>
             <div>
                 <h3>{"Videos to watch"}</h3>
-                <VideosList videos={videos} />
-                <p>{" "}</p>
+                <VideosList videos={videos} on_click={on_video_select} />
             </div>
             <div>
+            {for details}
                 <img
                     src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
                     alt="video thumbnail"
