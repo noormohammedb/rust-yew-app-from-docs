@@ -55,13 +55,7 @@ fn app() -> Html {
                 <h3>{"Videos to watch"}</h3>
                 <VideosList videos={videos} on_click={on_video_select} />
             </div>
-            <div>
             {for details}
-                <img
-                    src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-                    alt="video thumbnail"
-                />
-            </div>
         </>
     }
 }

@@ -13,9 +13,9 @@ pub fn videos_list(VideosListProps { videos, on_click }: &VideosListProps) -> Ht
                 Callback::from(move |_| on_click.emit(video.clone()))
             };
             html! {
-            <>
-                <p key={video.id} onclick={on_video_select} > {format!("{}: {}", video.speaker, video.title)} </p>
-            </>
+                <>
+                    <p key={video.id} onclick={on_video_select}> {format!("{}: {}", video.speaker, video.title)} </p>
+                </>
             }
         })
         .collect()

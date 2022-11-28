@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew::Properties;
 
-#[derive(Clone, PartialEq, Debug)]
+#[derive(Clone, Eq, PartialEq, Debug)]
 pub struct Video {
     pub id: usize,
     pub title: String,
@@ -15,7 +15,7 @@ pub struct VideosListProps {
     pub on_click: Callback<Video>,
 }
 
-#[derive(Properties, PartialEq, Debug)]
+#[derive(Properties, Eq, PartialEq, Debug)]
 pub struct VideoDetailsProps {
     pub video: Video,
 }
