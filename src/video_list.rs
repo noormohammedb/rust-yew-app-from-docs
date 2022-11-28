@@ -1,12 +1,5 @@
-use crate::models::Video;
+use crate::models::VideosListProps;
 use yew::prelude::*;
-use yew::Properties;
-
-// #[derive(Properties)]
-#[derive(Properties, PartialEq, Debug)]
-pub struct VideosListProps {
-    pub videos: Vec<Video>,
-}
 
 #[function_component(VideosList)]
 pub fn videos_list(VideosListProps { videos }: &VideosListProps) -> Html {

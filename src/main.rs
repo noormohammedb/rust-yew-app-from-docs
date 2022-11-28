@@ -12,9 +12,6 @@ fn app() -> Html {
             title: "Building and breeaking things".to_string(),
             speaker: "John Doe".to_string(),
             url: "https://youtu.be/PsaFVLr8t4E".to_string(),
-            // title: "Building and breeaking things",
-            // speaker: "John Doe",
-            // url: "https://youtu.be/PsaFVLr8t4E",
         },
         Video {
             id: 2,
@@ -36,30 +33,15 @@ fn app() -> Html {
         },
     ];
 
-    // let videos = videos
-    //     .iter()
-    //     .map(|video| {
-    //         html! {
-    //             <p key={video.id}>{format!("{}: {}", video.speaker, video.title)}</p>
-    //         }
-    //     })
-    //     .collect::<Html>();
-
     html! {
         <>
             <h1>{"RustConf Explorer"}</h1>
             <div>
                 <h3>{"Videos to watch"}</h3>
-                // <p>{"John Doe: Building and breaking things"}</p>
-                // <p>{"Jane Smith: The development process"}</p>
-                // <p>{"Matt Miller: The Web 7.0"}</p>
-                // <p>{"Tom Jerry: Mouseless development"}</p>
-                // {videos}
                 <VideosList videos={videos} />
                 <p>{" "}</p>
             </div>
             <div>
-                <h3>{"John Doe: Building and breaking things"}</h3>
                 <img
                     src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
                     alt="video thumbnail"
