@@ -1,7 +1,8 @@
+use serde::Deserialize;
 use yew::prelude::*;
 use yew::Properties;
 
-#[derive(Clone, Eq, PartialEq, Debug)]
+#[derive(Clone, Eq, PartialEq, Debug, Deserialize)]
 pub struct Video {
     pub id: usize,
     pub title: String,
