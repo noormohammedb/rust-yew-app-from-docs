@@ -18,13 +18,13 @@ fn app() -> Html {
             move |_| {
                 let videos = videos.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    let fetched_videos: Vec<Video> = Request::get("https://api.jsonstorage.net/v1/json/ce1635ff-17f5-4a0e-ac9b-4905478273fe/c06d3dd4-97ba-458c-905e-3c5617424d5f")
-                    .send()
-                    .await
-                    .unwrap()
-                    .json()
-                    .await
-                    .unwrap();
+                    let fetched_videos: Vec<Video> = Request::get("/data.json")
+                        .send()
+                        .await
+                        .unwrap()
+                        .json()
+                        .await
+                        .unwrap();
                     videos.set(fetched_videos);
                 });
                 || ()
