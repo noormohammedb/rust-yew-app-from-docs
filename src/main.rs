@@ -18,13 +18,14 @@ fn app() -> Html {
             move |_| {
                 let videos = videos.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    let fetched_videos: Vec<Video> = Request::get("/data.json")
-                        .send()
-                        .await
-                        .unwrap()
-                        .json()
-                        .await
-                        .unwrap();
+                    let fetched_videos: Vec<Video> =
+                        Request::get("/rust-yew-app-from-docs/data.json")
+                            .send()
+                            .await
+                            .unwrap()
+                            .json()
+                            .await
+                            .unwrap();
                     videos.set(fetched_videos);
                 });
                 || ()
